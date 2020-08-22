@@ -5,3 +5,4 @@
 - git clone your repository that created on github
 
 - finish
+- ssh windows
