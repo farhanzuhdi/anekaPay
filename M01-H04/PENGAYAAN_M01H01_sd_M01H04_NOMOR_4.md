@@ -1,0 +1,1 @@
+Require adalah fungsi yang digunakan untuk melakukan impor ke modul yang sudah kita instal maupun yang telah disediakan oleh nodejs sendiri. Untuk impor dari modul yang belum disediakan oleh nodejs kita harus mendownload paket modul itu lalu instal menggunakan NPM ataupun Yarn.
