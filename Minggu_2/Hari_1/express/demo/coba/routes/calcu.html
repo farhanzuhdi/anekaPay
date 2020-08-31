@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>Kalkulator</title>
+</head>
+<body>
+<form name="hitung">
+    Angka 1 : 
+    <br>
+    <input type="number" name="angka1">
+    <br>
+    Angka 2 :
+    <br>
+    <input type="number" name="angka2">
+    <br>
+    <input type="button" value="+" onClick="jumlah()">
+    <input type="button" value="-" onClick="kurang()">
+    <input type="button" value="x" onClick="kali()">
+    <input type="button" value=":" onClick="bagi()">
+    <input type="button" value="C" onclick="c()">
+    Hasil :
+    <br>
+    <input type="number" name="hasil">
+</form>
+<script type="text/javascript">
+    function jumlah(){
+        var ang1, ang2, jum;
+        ang1 = Number(document.hitung.angka1.value);
+        ang2 = Number(document.hitung.angka2.value);
+        jum = ang1+ang2;
+        document.hitung.hasil.value=jum;
+    }
+    function kurang(){
+        var ang1, ang2, jum;
+        ang1 = Number(document.hitung.angka1.value);
+        ang2 = Number(document.hitung.angka2.value);
+        jum = ang1-ang2;
+        document.hitung.hasil.value=jum;
+    }
+    function bagi(){
+        var ang1, ang2, jum;
+        ang1 = Number(document.hitung.angka1.value);
+        ang2 = Number(document.hitung.angka2.value);
+        if(ang2==0){
+            alert("pembagi tidak boleh 0")
+        }else{
+            jum = ang1/ang2;
+            document.hitung.hasil.value=jum;
+        }
+    }
+    function kali(){
+        var ang1, ang2, jum;
+        ang1 = Number(document.hitung.angka1.value);
+        ang2 = Number(document.hitung.angka2.value);
+        jum = ang1*ang2;
+        document.hitung.hasil.value=jum;
+    }
+    function c(){
+        document.hitung.angka1.value = "";
+        document.hitung.angka2.value = "";
+        document.hitung.hasil.value = "";
+    }
+</script>
+</body>
+</html>
