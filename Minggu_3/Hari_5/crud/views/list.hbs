@@ -1,0 +1,28 @@
+<h3><a class="btn btn-secondary" href="/buku/add"><i class="fa fa-plus"></i> Tambah</a> Daftar Buku</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nama</th>
+            <th>Author</th>
+            <th>Penerbit</th>
+            <th>Tahun Terbit</th>
+            <th>Jumlah Halaman</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.nama}}</td>
+            <td>{{this.author}}</td>
+            <td>{{this.penerbit}}</td>
+            <td>{{this.tahun_terbit}}</td>
+            <td>{{this.jumlah_halaman}}</td>
+            <td>
+                <a href="/buku/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/buku/hapus/{{this._id}}" onclick="return confirm('Yakin hapus buku {{this.nama}} ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
