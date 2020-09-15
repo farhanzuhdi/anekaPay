@@ -3,12 +3,18 @@ var router = express.Router();
 const mongoose = require('mongoose');
 const session = require('express-session');
 const User = mongoose.model('user');
-//var sess;
 
 router.get('/', (req, res) => {
-    res.render("login", {
-        viewTitle: "Login"
-    });
+    req.session;
+    if(req.session.level=='admin'){
+        res.redirect('/admin/home')
+    }else if(req.session.level=='user'){
+        res.redirect('/user/home')
+    }else{
+        res.render("login", {
+            viewTitle: "Login"
+        });
+    }
 });
 
 router.get('/register', (req, res) => {
@@ -25,6 +31,7 @@ router.post('/auth', (req, res) => {
                 req.session.id = doc._id;
                 req.session.username = doc.username;
                 req.session.level = doc.level;
+                req.session.password = doc.password;
                 if(doc.level=='admin'){
                     res.redirect('/admin/home');
                 }else{

@@ -5,6 +5,7 @@ const Buku = mongoose.model('buku');
 
 //tampil buku
 router.get('/list', (req, res) => {
+    if(req.session.level=='admin'){
     Buku.find((err, docs) => {
         if (!err) {
             res.render("list", {
@@ -18,7 +19,22 @@ router.get('/list', (req, res) => {
             });
         }
     });
+}else{
+    res.redirect('/admin/logout');
+}
 });
+
+router.get('/listapi',(req, res)=>{
+    Buku.find((err, buku) =>{
+        if(err){
+            console.log('Terjadi kesalahan saat tambah data : ' + err);
+            res.render('error',{
+                message:'gagal menampilkan data'
+            });
+        }
+        res.send(buku)
+    })
+})
 
 //tampil form tambah
 router.get('/add', (req, res) => {

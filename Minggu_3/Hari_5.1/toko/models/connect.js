@@ -7,3 +7,5 @@ mongoose.connect('mongodb://localhost:27017/db_buku', { useNewUrlParser: true },
 
 require('./bukumodel');
 require('./usermodel')
+require('./detilkeranjang')
+require('./keranjangmodel')

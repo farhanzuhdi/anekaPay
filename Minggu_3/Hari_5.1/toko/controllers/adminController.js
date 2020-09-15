@@ -12,7 +12,7 @@ router.get('/home', (req, res) => {
             message: req.session.username        
         });
     }else{
-        res.redirect('/logout');
+        res.redirect('/admin/logout');
     }
 });
 
@@ -22,6 +22,7 @@ router.get('/logout',(req,res)=>{
 })
 
 router.get('/listuser', (req, res) => {
+    if(req.session.level=='admin'){
     User.find({level:'user'},(err, docs) => {
         if (!err) {
             res.render("listUser", {
@@ -35,6 +36,9 @@ router.get('/listuser', (req, res) => {
             });
         }
     });
+}else{
+    res.redirect('/admin/logout');
+}
 });
 
 router.get('/ubahuser/:id', (req, res) => {
